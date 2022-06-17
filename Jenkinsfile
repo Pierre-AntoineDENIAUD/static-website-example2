@@ -1,7 +1,7 @@
 pipeline {
      environment {
-       ID_DOCKER = "fredgho"
-       PASS_DOCKER = "gnocchi123!"
+       ID_DOCKER = "valoutropie"
+       PASS_DOCKER = "i0XfT4zG1KIew4gQrB6f"
        IMAGE_NAME = "alpinehelloworld"
        IMAGE_TAG = "latest"
        STAGING = "${ID_DOCKER}-staging"

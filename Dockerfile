@@ -1,11 +1,9 @@
-FROM alpine:latest
-
-#COPY default.conf /etc/nginx/conf.d/default.conf
-
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-
-#COPY ./app /usr/share/nginx/html
-RUN git clone https://github.com/diranetafen/static-website-example.git /var/www/html/
-
-CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
+FROM ubuntu
+#MAINTAINER eazytraining (eazytrainingfr@gmail.com)
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nginx git
+EXPOSE 81
+#ADD static-website-example/ /var/www/html/
+RUN rm -Rf /var/www/html/*
+RUN git clone https://github.com/qqMelon/static-website-example.git /var/www/html/
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
